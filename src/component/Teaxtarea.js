@@ -3,11 +3,12 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useState } from 'react';
-import { style } from '@mui/system';
+
 
 
 
 export default function MultilineTextFields() {
+    const [text, setText] = useState("");
     const handleOnChange = (event) => {
         setText(event.target.value)
         // console.log(text);
@@ -35,7 +36,7 @@ export default function MultilineTextFields() {
       setText(text4);
     }
 
-    const [text, setText] = useState("")
+    
 
     return (
         <Box
