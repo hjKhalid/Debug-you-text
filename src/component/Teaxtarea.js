@@ -3,6 +3,10 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useState } from 'react';
+import Display from './Display';
+import BasicStack from './BasicStack';
+
+
 
 
 
@@ -28,15 +32,17 @@ export default function MultilineTextFields() {
         setText(text1);
 
     }
-    let myStyle={
-        fontSize:'17'
-    }
-    const changeToitailic = () =>{
-      let text4=text.myStyle;
-      setText(text4);
-    }
-
+    // const textStyle = {
+    //     fontStyle: text ? "italic" : "normal",
+    //   }
     
+ 
+
+    const changeToitailic = () =>{
+      setText();
+        
+    }
+   
 
     return (
         <Box
@@ -56,7 +62,8 @@ export default function MultilineTextFields() {
                     multiline
                     rows={8}
                     value={text}
-                    style={myStyle}
+                    // style={textStyle?textStyle:""}
+                    
                 />
 
             </div>
@@ -71,19 +78,20 @@ export default function MultilineTextFields() {
                 <Button variant="contained" disableElevation onClick={clear} className="contaoner mx-1">
                     clear
                 </Button>
-                <Button variant="contained" disableElevation onClick={changeToitailic} className="contaoner mx-1">
-                    itailic
-                </Button>
+                
             </div>
             <div className='container'>
                 <div className='box'>
-                    <h2 className='my-3'>Text Summary</h2>
+                    <h2 className='my-3'style={{color:"wh",fontWeight:"400%",}}>Text Summary</h2>
                 </div>
-
-                <p><h6>the word are:  {text.split(" ").length} </h6><br /><h6>the alphabate are:{text.length}</h6>  </p>
-                <p><h6>Time requred to read:{(0.08*text.split(" ").length)/60}  minutes</h6></p>
-                <h3>Preview</h3>
-                <p>{text}</p>
+                <BasicStack word= {text.split(" ").length} alphabet={text.length} read={(0.08*text.split(" ").length)/60}/>
+                
+                <h3 className='my-3'>Preview in Itailic</h3>
+               <Display text={text}/>
+                
+               
+            
+            
             </div>
             
         </Box>
