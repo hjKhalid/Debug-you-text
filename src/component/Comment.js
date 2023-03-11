@@ -2,6 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import axios from 'axios'
 
 export default function BasicTextFields() {
     const [text,setText]=React.useState("")
@@ -9,6 +10,22 @@ export default function BasicTextFields() {
        
             setText(event.target.value)
        
+    }
+
+    const handleOnClick=()=>{axios({
+        method: "post",
+        url: "http://locahost3004/api/auth",
+        data: {text},
+        headers: { "Content-Type": "multipart/form-data" },
+      })
+        .then(function (response) {
+          //handle success
+          console.log(response);
+        })
+        .catch(function (response) {
+          //handle error
+          console.log(response);
+        });
     }
 
   return (
@@ -24,7 +41,7 @@ export default function BasicTextFields() {
       <TextField id="outlined-basic" onChange={onChangeEvent}  label="Add Comment" variant="outlined" />
       
     </Box>
- <Button variant="contained" disableElevation className="contaoner my-2">
+ <Button variant="contained" disableElevation onClick={handleOnClick} className="contaoner my-2">
        Add comment
    </Button>
    </>
