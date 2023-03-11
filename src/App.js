@@ -2,7 +2,7 @@
 import './App.css';
 import Header from './component/Header'
 import Textarea from './component/Teaxtarea'
-import { Box } from '@mui/system';
+
 
 function App() {
   return (
