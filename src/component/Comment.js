@@ -14,11 +14,10 @@ export default function BasicTextFields(props) {
 
   const onChangeEvent = (event) => {
 
-    setText(event.target.value)
+    setText(event.target.value);
+    
 
   }
-
-  console.log(text);
   
 
   const handleOnClick = () => {
@@ -37,10 +36,10 @@ export default function BasicTextFields(props) {
         console.log(response);
       });
       setComment(text);
-     text="";
+     
     
   }
-   console.log(comment)
+  
 
   return (
     <>
